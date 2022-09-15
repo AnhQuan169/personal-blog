@@ -49,4 +49,24 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = Hash::make($value);
     }
+
+    public function userProfile()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
+
+    public function news()
+    {
+        return $this->hasMany(News::class, 'user_id', 'id');
+    }
+
+    public function post()
+    {
+        return $this->hasMany(Post::class, 'user_id', 'id');
+    }
+
+    public function comment()
+    {
+        return $this->hasMany(Comment::class, 'user_id', 'id');
+    }
 }
