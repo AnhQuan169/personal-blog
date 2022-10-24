@@ -11,7 +11,10 @@ const mix = require('laravel-mix');
  |
  */
 
+
+// User
 mix.js('resources/js/app.js', 'public/js')
+    .copyDirectory('resources/assets/user/images', 'public/storage/images')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);
