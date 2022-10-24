@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\CategoryStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
@@ -15,10 +16,10 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(30),
+            'title' => $this->faker->unique()->text(10),
             'parent_id' => null,
-            'description' => $this->faker->text(200),
-            'status' => $this->faker->numberBetween(0, 1),
+            'description' => $this->faker->text(100),
+            'status' => CategoryStatus::getRandomValue(),
             'order_by' => null,
             'created_at' => Carbon::yesterday(),
             'updated_at' => Carbon::today()
