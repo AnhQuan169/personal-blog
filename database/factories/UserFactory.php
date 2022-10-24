@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\UserRole;
+use App\Enums\UserStatus;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
@@ -21,7 +22,7 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'password' => 123456,
             'role' => UserRole::USER(),
-            'status' => random_int(0, 2),
+            'status' => UserStatus::getRandomValue(),
             'created_at' => Carbon::yesterday(),
             'updated_at' => Carbon::today()
         ];
