@@ -19,7 +19,7 @@ class NewsFactory extends Factory
     {
         return [
             'user_id' => User::where('role', UserRole::ADMIN())->first()->id,
-            'title' => $this->faker->text(20),
+            'title' => $this->faker->text(30),
             'description' => $this->faker->text(100),
             'content' => $this->faker->text(200),
             'image' => 'images/image_demo.jpg',
