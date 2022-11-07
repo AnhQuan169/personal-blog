@@ -11,7 +11,9 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+
+// User
+mix.js('resources/assets/user/js/app.js', 'public/user/js')
+    .copyDirectory('resources/assets/user/images', 'public/storage/images')
+
+mix.browserSync('127.0.0.1:8000');
