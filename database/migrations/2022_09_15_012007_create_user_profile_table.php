@@ -18,11 +18,11 @@ class CreateUserProfileTable extends Migration
             $table->integer('user_id');
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
-            $table->string('avatar')->nullable();
-            $table->string('address')->nullable();
+            $table->text('avatar')->nullable();
+            $table->text('address')->nullable();
             $table->string('phone')->nullable();
-            $table->boolean('gender')->default(true);
-            $table->string('province')->nullable();
+            $table->integer('gender')->default(1);
+            $table->text('province')->nullable();
             $table->timestamps();
         });
     }
