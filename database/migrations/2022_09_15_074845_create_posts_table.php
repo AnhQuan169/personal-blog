@@ -20,9 +20,9 @@ class CreatePostsTable extends Migration
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->text('content')->nullable();
-            $table->integer('viewed')->nullable(0);
-            $table->integer('status')->default(0);
-            $table->string('image')->nullable();
+            $table->integer('viewed')->default(0);
+            $table->integer('status')->default(1);
+            $table->text('image')->nullable();
             $table->softDeletes();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
