@@ -11,6 +11,29 @@ const mix = require('laravel-mix');
  |
  */
 
+ mix.webpackConfig({
+    resolve: {
+        extensions: ['.js', '.vue', '.json', '.scss', '.png'],
+        alias: {
+            '@': __dirname + '/resources/assets',
+            '~': __dirname + 'node_modules/'
+        },
+    },
+})
+
+// Base
+mix.js('resources/assets/base/js/app.js', 'public/js')
+    .sass('resources/assets/base/scss/app.scss', 'public/css');
+
+// Admin
+mix.js('resources/assets/admin/js/app.js', 'public/admin/js')
+    .sass('resources/assets/admin/scss/app.scss', 'public/admin/css')
+    .copyDirectory('resources/assets/admin/images', 'public/admin/images')
+    .copyDirectory('resources/assets/admin/app-assets', 'public/admin/app-assets')
+    .copyDirectory('resources/assets/admin/app-assets/data', 'public/app-assets/data')
+    .copyDirectory('resources/assets/admin/LivIconsEvo', 'public/app-assets/fonts/LivIconsEvo')
+
+// Node modules
 
 // User
 mix.js('resources/assets/user/js/app.js', 'public/user/js')
