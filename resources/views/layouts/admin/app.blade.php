@@ -51,6 +51,7 @@
             <div class="content-body">
                 <!-- Dashboard Ecommerce Starts -->
                 <section id="dashboard-ecommerce">
+                    @include('layouts.admin.partials.notice')
                     <div class="row">
                         <!-- Greetings Content Starts -->
                         <div class="col-xl-12 col-md-12 col-12 dashboard-greetings">

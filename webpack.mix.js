@@ -30,8 +30,8 @@ mix.js('resources/assets/admin/js/app.js', 'public/admin/js')
     .sass('resources/assets/admin/scss/app.scss', 'public/admin/css')
     .copyDirectory('resources/assets/admin/images', 'public/admin/images')
     .copyDirectory('resources/assets/admin/app-assets', 'public/admin/app-assets')
-    .copyDirectory('resources/assets/admin/app-assets/data', 'public/app-assets/data')
-    .copyDirectory('resources/assets/admin/LivIconsEvo', 'public/app-assets/fonts/LivIconsEvo')
+    .copyDirectory('resources/assets/admin/app-assets/data', 'public/admin/app-assets/data')
+    .copyDirectory('resources/assets/admin/LivIconsEvo', 'public/admin/app-assets/fonts/LivIconsEvo')
 
 // Node modules
 
