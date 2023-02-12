@@ -44,7 +44,7 @@
   <div class="main-menu-content">
     <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation" data-icon-style="lines">
       <li class="nav-item active">
-        <a href="index.html.html">
+        <a href="{{ route('admin.dashboard.index') }}">
           <i class="menu-livicon" data-icon="desktop"></i>
           <span class="menu-title text-truncate" data-i18n="Dashboard">Dashboard</span>
         </a>
@@ -53,9 +53,9 @@
         <span data-i18n="Apps">Apps</span>
       </li>
       <li class="nav-item">
-        <a href="app-kanban.html">
+        <a href="{{ route('admin.categories.index') }}">
           <i class="menu-livicon" data-icon="grid"></i>
-          <span class="menu-title text-truncate" data-i18n="Kanban">Kanban</span>
+          <span class="menu-title text-truncate" data-i18n="Kanban">Category</span>
         </a>
       </li>
       <li class="nav-item">

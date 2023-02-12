@@ -16,6 +16,7 @@
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/app-assets/vendors/css/vendors.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/app-assets/vendors/css/ui/prism.min.css') }}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -23,11 +24,17 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/app-assets/css/bootstrap-extended.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/app-assets/css/colors.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/app-assets/css/components.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/app-assets/css/themes/dark-layout.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/app-assets/css/themes/semi-dark-layout.min.css') }}">
     <!-- END: Theme CSS-->
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/app-assets/css/core/menu/menu-types/vertical-menu.min.css') }}">
     <!-- END: Page CSS-->
+
+    {{-- BEGIN:Page js node modules --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('node_modules/select2/css/select2.min.css') }}">
+    <!-- END: Page js-->
     @stack('styles')
 </head>
 <!-- END: Head-->
@@ -50,19 +57,8 @@
             <div class="content-header row"></div>
             <div class="content-body">
                 <!-- Dashboard Ecommerce Starts -->
-                <section id="dashboard-ecommerce">
-                    @include('layouts.admin.partials.notice')
-                    <div class="row">
-                        <!-- Greetings Content Starts -->
-                        <div class="col-xl-12 col-md-12 col-12 dashboard-greetings">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="greeting-text">Welcome to my Blog</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                @include('layouts.admin.partials.notice')
+                @yield('content')
                 <!-- Dashboard Ecommerce ends -->
             </div>
         </div>
@@ -82,6 +78,10 @@
     <script src="{{ asset('admin/app-assets/fonts/LivIconsEvo/js/LivIconsEvo.min.js') }}"></script>
     <!-- BEGIN Vendor JS-->
 
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="{{ asset('admin/app-assets/vendors/js/ui/prism.min.js') }}"></script>
+    <!-- END: Page Vendor JS-->
+
     <!-- BEGIN: Theme JS-->
     <script src="{{ asset('admin/app-assets/js/scripts/configs/vertical-menu-light.min.js') }}"></script>
     <script src="{{ asset('admin/app-assets/js/core/app-menu.min.js') }}"></script>
@@ -91,9 +91,14 @@
     <script src="{{ asset('admin/app-assets/js/scripts/customizer.min.js') }}"></script>
     <!-- END: Theme JS-->
 
-    <!-- BEGIN: Page JS-->
-
+    <!-- BEGIN: Page JS node modules-->
+    <script src="{{ asset('node_modules/select2/js/select2.min.js') }}"></script>
     <!-- END: Page JS-->
+
+    <!-- BEGIN: Page JS admin management-->
+    <script src="{{ asset('admin/admin_management/categories/js/category-management.js') }}"></script>
+    <!-- END: Page JS-->
+
     @stack('scripts')
 </body>
 <!-- END: Body-->
