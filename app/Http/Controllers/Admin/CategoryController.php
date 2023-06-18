@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Categories\AddCategoryRequest;
 use App\Services\Admin\CategoryService;
 use Illuminate\Http\Request;
+use App\Http\Resources\CategoryResource;
 
 class CategoryController extends Controller
 {
@@ -23,9 +24,8 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         $listCategories = $this->categoryService->listCategories();
-        $categories = $this->categoryService->getCategories($request);
 
-        return view('admin.categories.index', compact('listCategories', 'categories'));
+        return view('admin.categories.index', compact('listCategories'));
     }
 
     /**
@@ -96,5 +96,17 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Get list category with resource API
+     *
+     * @return void
+     */
+    public function fetchCategory(Request $request)
+    {
+        $categories = $this->categoryService->fetchCategory($request);
+        
+        return CategoryResource::collection($categories)->response();
     }
 }

@@ -23,7 +23,10 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
-    // Route::prefix('category')->name('category.')->group(function () {
-        Route::resource('categories', CategoryController::class);
-    // });
+    // Category management
+    Route::prefix('categories')->name('categories.')->group( function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('index');
+        Route::get('/fetch-category', [CategoryController::class, 'fetchCategory'])->name('fetch_category');
+        Route::post('/', [CategoryController::class, 'store'])->name('store');
+    });
 });

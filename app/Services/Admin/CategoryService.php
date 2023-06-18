@@ -18,18 +18,6 @@ class CategoryService
         return $this->model->orderBy('id', 'desc')->pluck('title', 'id');
     }
 
-    public function getCategories($request)
-    {
-        $categories= $this->model->query();
-        $limit = config('api.pagination.per_page');
-
-        if ($request->keyword) {
-            $categories->where('id', $request->keyword)->orderBy('id', 'desc')->paginate($limit);
-        }
-
-        return $categories->orderBy('id', 'desc')->paginate($limit);
-    }
-
     public function store($request)
     {
         try {
@@ -46,5 +34,22 @@ class CategoryService
 
             return false;
         }
+    }
+
+    /**
+     * Featch list category
+     *
+     * @return void
+     */
+    public function fetchCategory($request)
+    {
+        $limit = config('api.pagination.per_page');
+        $categories= $this->model->query();
+
+        if ($request->keyword) {
+            $categories->where('id', $request->keyword)->orderBy('id', 'desc')->paginate($limit);
+        }
+
+        return $categories->orderByDesc('id')->paginate($limit);
     }
 }
